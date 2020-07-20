@@ -2,7 +2,10 @@ package com.github.curriculeon;
 import java.util.*;
 
 public class People {
-    private List<Person> personList;
+    private List<Person> personList = new ArrayList<Person>();
+
+    public People(){
+    }
 
     public void add(Person newPerson){
         personList.add(newPerson);
@@ -38,6 +41,10 @@ public class People {
 
     public Person[] toArray(){
         return (Person[]) personList.toArray();
+    }
+
+    public Iterator<Person> iterator(){
+        return personList.iterator();
     }
 
 }
