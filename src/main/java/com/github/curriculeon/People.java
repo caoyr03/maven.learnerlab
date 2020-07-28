@@ -1,29 +1,30 @@
 package com.github.curriculeon;
 import java.util.*;
 
-public class People {
-    private List<Person> personList = new ArrayList<Person>();
+abstract public class People<E extends Person> implements Iterable<E>{
+    List<E> personList;
 
     public People(){
+        this.personList = new ArrayList<E>(); //instantiate a field in constructor
     }
 
-    public void add(Person newPerson){
-        personList.add(newPerson);
+    public void add(E e){
+        personList.add(e);
     }
 
-    public Person findById(long id){
-        for(Person p:personList){
+    public E findById(long id){
+        for(E p:personList){
             if(p.getId() == id)
                 return p;
         }
         return null;
     }
 
-    public Boolean contains(Person person){
+    public Boolean contains(E person){
         return personList.contains(person);
     }
 
-    public void remove(Person person){
+    public void remove(E person){
         personList.remove(person);
     }
 
@@ -39,11 +40,13 @@ public class People {
         return personList.size();
     }
 
-    public Person[] toArray(){
-        return (Person[]) personList.toArray();
-    }
+    abstract public E[] toArray();
+//    public Person[] toArray(){
+//        Person[] newArray = new Person[personList.size()]; //could not instantiate a generics type: E
+//        return personList.toArray(newArray); //arrayList to array
+//    }
 
-    public Iterator<Person> iterator(){
+    public Iterator<E> iterator(){
         return personList.iterator();
     }
 

@@ -5,20 +5,35 @@ import static org.junit.Assert.*;
 
 
 public class TestPerson {
-    long id = 600851475143L;
-    String name = "Leon Hunter";
+
 
     @Test
     public void testConstructor(){
-        Person myPerson = new Person(id, name);
-        assertEquals(id, myPerson.getId());
-        assertEquals(name, myPerson.getName());
+        //given
+        Long expectedId = 600851475143L;
+        String expectedName = "Leon Hunter";
+
+        //when
+        Person myPerson = new Person(expectedId, expectedName);
+        Long actualId = myPerson.getId();
+        String actualName = myPerson.getName();
+
+        //then
+        assertEquals(expectedId, actualId);
+        assertEquals(expectedName, actualName);
     }
 
     @Test
     public void testSetName(){
-        Person myPerson = new Person(id, name);
+        //given
+        Long expectedId = 600851475143L;
+        String expectedName = "Leon Hunter";
+
+        //when
+        Person myPerson = new Person(expectedId, expectedName);
         myPerson.setName("New Name");
+
+        //then
         assertEquals("New Name",myPerson.getName());
     }
 }

@@ -4,7 +4,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class TestPeople {
-    People myPeople = new People();
+    People myPeople = Instructors.getInstance();
     Person person1 = new Person(123,"Leon Hunter");
     Person person2 = new Person(456,"Yuru Cao");
 
